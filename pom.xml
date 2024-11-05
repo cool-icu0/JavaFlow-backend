@@ -5,10 +5,19 @@
   <groupId>com.cool</groupId>
   <artifactId>JavaFlow-backend</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>JavaFlow-backend</name>
   <url>http://maven.apache.org</url>
+  <modules>
+    <module>gateway-core</module>
+    <module>gateway-common</module>
+    <module>gateway-config-center</module>
+    <module>gateway-register-center</module>
+    <module>gateway-client</module>
+    <module>backend-http-server</module>
+    <module>backend-dubbo-server</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
