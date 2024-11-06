@@ -84,7 +84,7 @@ public interface IContext {
     /**
      * 获取异常信息
      */
-    void getThrowable();
+    Throwable getThrowable();
 
     //todo 这里还有一个getAttribute方法，暂时不写
 //    /**
