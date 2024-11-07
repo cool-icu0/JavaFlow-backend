@@ -1,5 +1,6 @@
 package com.cool.core.context;
 
+import com.cool.core.request.GatewayRequest;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
