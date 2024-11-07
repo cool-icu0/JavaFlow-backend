@@ -77,7 +77,7 @@ public interface IGatewayRequest {
     /**
      * 获取最终的请求路径（包含请求参数，Http://localhost:8080/api/admin?name=111）
      */
-    void getFinalUrl();
+    String getFinalUrl();
 
     /**
      * 构造最终的请求对象
