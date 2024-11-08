@@ -30,7 +30,7 @@ public class GatewayRequest implements IGatewayRequest {
      * 服务ID
      */
     @Getter
-    private final String uniquedId;
+    private final String uniqueId;
 
     /**
      * 请求进入网关时间
@@ -148,7 +148,7 @@ public class GatewayRequest implements IGatewayRequest {
     /**
      * 构造器
      *
-     * @param uniquedId
+     * @param uniqueId
      * @param charset
      * @param clientIp
      * @param host
@@ -158,7 +158,7 @@ public class GatewayRequest implements IGatewayRequest {
      * @param headers
      * @param fullHttpRequest
      */
-    public GatewayRequest(String uniquedId, long beginTime,
+    public GatewayRequest(String uniqueId, long beginTime,
                           long endTime, Charset charset,
                           String clientIp, String host,
                           String path, String uri,
@@ -166,7 +166,7 @@ public class GatewayRequest implements IGatewayRequest {
                           QueryStringDecoder queryStringDecoder,
                           FullHttpRequest fullHttpRequest,
                           RequestBuilder requestBuilder, HttpMethod method, HttpHeaders headers) {
-        this.uniquedId = uniquedId;
+        this.uniqueId = uniqueId;
         this.method = method;
         this.headers = headers;
         this.beginTime = TimeUtil.currentTimeMillis();

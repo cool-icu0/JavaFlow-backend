@@ -1,5 +1,6 @@
 package com.cool.core.context;
 
+import com.cool.common.rule.Rule;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class BaseContext implements IContext {
     protected List<Consumer<IContext>> completedCallBacks;
 
     //定义是否已经释放资源
-    protected AtomicBoolean requestRelease = new AtomicBoolean(false);
+    protected AtomicBoolean requestReleased = new AtomicBoolean(false);
 
     public BaseContext(String protocol, ChannelHandlerContext nettyCtx, boolean keepAlive) {
         this.protocol = protocol;
@@ -47,7 +48,7 @@ public class BaseContext implements IContext {
 
 
     @Override
-    public void runned() {
+    public void running() {
         status = IContext.RUNNING;
     }
 
@@ -90,11 +91,11 @@ public class BaseContext implements IContext {
     public String getProtocol() {
         return this.protocol;
     }
-    //todo 待实现Rule
-//    @Override
-//    public Rule getRule() {
-//        return null;
-//    }
+
+    @Override
+    public Rule getRule() {
+        return null;
+    }
 
     @Override
     public Object getRequest() {
@@ -110,20 +111,18 @@ public class BaseContext implements IContext {
     public Throwable getThrowable() {
         return this.throwable;
     }
-    //todo 待实现Getattr
-//    @Override
-//    public Object getAttribute(Map<String, Object> key) {
-//        return attributes.get(key);
-//    }
-    //todo 待实现setRule
-//    @Override
-//    public void setRule() {
-//
-//    }
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> T getAttribute(String key) {
+        return (T) attributes.get(key);
+    }
+
+    @Override
+    public void setRule() {
+    }
 
     @Override
     public void setResponse() {
-
     }
 
     @Override
@@ -131,11 +130,10 @@ public class BaseContext implements IContext {
         this.throwable = throwable;
     }
 
-    //todo 待实现setAttribute
-//    @Override
-//    public void setAttribute(String key,Object obj) {
-//        attributes.put(key,obj);
-//    }
+    @Override
+    public void setAttribute(String key,Object obj) {
+        attributes.put(key,obj);
+    }
 
     @Override
     public ChannelHandlerContext getNettyCtx() {
@@ -148,10 +146,9 @@ public class BaseContext implements IContext {
     }
 
     @Override
-    public boolean releaseRequest() {
-        return false;
+    public void releaseRequest() {
         //todo 待实现
-//        this.requestReleased.compareAndSet(false,true);
+        this.requestReleased.compareAndSet(false,true);
     }
 
     @Override
