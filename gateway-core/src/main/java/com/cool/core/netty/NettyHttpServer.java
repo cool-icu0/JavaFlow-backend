@@ -26,9 +26,11 @@ public class NettyHttpServer  implements LifeCycle {
     private ServerBootstrap serverBootstrap;
     private EventLoopGroup eventLoopGroupBoss;
     private EventLoopGroup eventLoopGroupWorker;
+    private final NettyProcessor nettyProcessor;
 
-    public NettyHttpServer(Config config) {
+    public NettyHttpServer(Config config, NettyProcessor nettyProcessor) {
         this.config = config;
+        this.nettyProcessor = nettyProcessor;
         init();
     }
 
@@ -65,7 +67,7 @@ public class NettyHttpServer  implements LifeCycle {
                                 new HttpServerCodec(), //http编解码
                                 new HttpObjectAggregator(config.getMaxContentLength()),//http对象聚合器
                                 new NettyServerConnectManagerHandler(),
-                                new NettyHttpServerHandler()
+                                new NettyHttpServerHandler(nettyProcessor)
                         );
                     }
                 });
