@@ -39,12 +39,6 @@ public class GatewayRequest implements IGatewayRequest {
     private final long beginTime;
 
     /**
-     * 请求离开网关时间
-     */
-    @Getter
-    private final long endTime;
-
-    /**
      * 字符集不会变的
      */
     @Getter
@@ -158,35 +152,36 @@ public class GatewayRequest implements IGatewayRequest {
      * @param headers
      * @param fullHttpRequest
      */
-    public GatewayRequest(String uniqueId, long beginTime,
-                          long endTime, Charset charset,
-                          String clientIp, String host,
-                          String path, String uri,
+    public GatewayRequest(String uniqueId,
+                          Charset charset,
+                          String clientIp,
+                          String host,
+                          String uri,
+                          HttpMethod method,
                           String contentType,
-                          QueryStringDecoder queryStringDecoder,
-                          FullHttpRequest fullHttpRequest,
-                          RequestBuilder requestBuilder, HttpMethod method, HttpHeaders headers) {
+                          HttpHeaders headers,
+                          FullHttpRequest fullHttpRequest) {
         this.uniqueId = uniqueId;
-        this.method = method;
-        this.headers = headers;
         this.beginTime = TimeUtil.currentTimeMillis();
-        this.endTime = endTime;
         this.charset = charset;
         this.clientIp = clientIp;
-        this.contentType = contentType;
-        this.queryStringDecoder = new QueryStringDecoder(uri, charset);
-        this.fullHttpRequest = fullHttpRequest;
-        this.requestBuilder = new RequestBuilder();
         this.host = host;
-        this.path = queryStringDecoder.path();
         this.uri = uri;
+        this.method = method;
+        this.contentType = contentType;
+        this.headers = headers;
+        this.fullHttpRequest = fullHttpRequest;
+        this.queryStringDecoder = new QueryStringDecoder(uri, charset);
+        this.path = queryStringDecoder.path();
 
         //对可变参数进行初始化
         this.modifyHost = host;
         this.modifyPath = path;
+
         this.modifyScheme = BasicConst.HTTP_PREFIX_SEPARATOR;
-        this.requestBuilder.setMethod(getMethod().name());
+        this.requestBuilder = new RequestBuilder();
         this.requestBuilder.setHeaders(getHeaders());
+        this.requestBuilder.setMethod(getMethod().name());
         this.requestBuilder.setQueryParams(queryStringDecoder.parameters());
 
         //判断请求对象是否为空

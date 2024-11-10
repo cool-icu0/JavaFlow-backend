@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class HttpRequestWrapper {
-    private FullHttpRequest request;
+    private FullHttpRequest fullHttpRequest;
     private ChannelHandlerContext ctx;
 }
