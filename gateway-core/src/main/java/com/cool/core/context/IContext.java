@@ -133,9 +133,8 @@ public interface IContext {
 
     /**
      * 设置回调函数
-     * @param consumer
      */
-    void invokeCompletedCallBack(Consumer<IContext> consumer);
+    void invokeCompletedCallBack();
 
 }
 
