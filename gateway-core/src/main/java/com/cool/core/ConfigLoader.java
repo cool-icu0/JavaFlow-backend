@@ -55,6 +55,11 @@ public class ConfigLoader {
 
         return config;
     }
+
+    /**
+     * 从运行参数中加载配置
+     * @param args 运行参数数组
+     */
     private void loadFromArgs(String[] args) {
         //--port=1234
         if (args != null & args.length > 0) {
@@ -69,11 +74,17 @@ public class ConfigLoader {
         }
     }
 
+    /**
+     * 从JVM参数中加载配置
+     */
     private void loadFromJvm() {
         Properties properties = System.getProperties();
         PropertiesUtils.properties2Object(properties, config, JVM_PREFIX);
     }
 
+    /**
+     * 从环境变量中加载配置
+     */
     private void loadFromEnv() {
         Map<String, String> env = System.getenv();
         Properties properties = new Properties();
@@ -81,6 +92,9 @@ public class ConfigLoader {
         PropertiesUtils.properties2Object(properties, config, ENV_PREFIX);
     }
 
+    /**
+     * 从配置文件中加载配置
+     */
     private void loadFromConfigFile(){
         InputStream inputStream = ConfigLoader.class.getClassLoader().getResourceAsStream(CONFIG_FILE);
         if (inputStream != null) {

@@ -15,10 +15,10 @@ public class NettyHttpServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        FullHttpRequest request = (FullHttpRequest) msg;
+        FullHttpRequest fullHttpRequest = (FullHttpRequest) msg;
         HttpRequestWrapper httpRequestWrapper = new HttpRequestWrapper();
         httpRequestWrapper.setCtx(ctx);
-        httpRequestWrapper.setRequest(request);
+        httpRequestWrapper.setFullHttpRequest(fullHttpRequest);
         nettyProcessor.process(httpRequestWrapper);
     }
 }
