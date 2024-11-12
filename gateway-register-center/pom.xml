@@ -8,10 +8,13 @@
     </parent>
 
     <artifactId>gateway-register-center</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>gateway-register-center</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>register-center-api</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
