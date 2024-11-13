@@ -14,6 +14,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>register-center-api</module>
+        <module>register-center-nacos</module>
     </modules>
 
     <properties>
