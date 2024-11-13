@@ -1,11 +1,14 @@
 package com.cool.common.config;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * 一个服务定义会对应多个服务实例
  */
+@Data
 public class ServiceInstance implements Serializable {
 
 	private static final long serialVersionUID = -7559569289189228478L;
@@ -56,80 +59,8 @@ public class ServiceInstance implements Serializable {
 		super();
 	}
 
-	public String getServiceInstanceId() {
-		return serviceInstanceId;
-	}
-
-	public void setServiceInstanceId(String serviceInstanceId) {
-		this.serviceInstanceId = serviceInstanceId;
-	}
-
-	public String getUniqueId() {
-		return uniqueId;
-	}
-
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
-
 	public String getAddress() {
 		return uniqueId;
-	}
-
-	public String getTags() {
-		return tags;
-	}
-
-	public void setTags(String tags) {
-		this.tags = tags;
-	}
-
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public int getPort() {
-		return port;
-	}
-
-	public void setPort(int port) {
-		this.port = port;
-	}
-
-	public Integer getWeight() {
-		return weight;
-	}
-
-	public void setWeight(Integer weight) {
-		this.weight = weight;
-	}
-
-	public long getRegisterTime() {
-		return registerTime;
-	}
-
-	public void setRegisterTime(long registerTime) {
-		this.registerTime = registerTime;
-	}
-
-	public boolean isEnable() {
-		return enable;
-	}
-
-	public void setEnable(boolean enable) {
-		this.enable = enable;
-	}
-
-	public String getVersion() {
-		return version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
 	}
 
 	public static long getSerialversionuid() {
