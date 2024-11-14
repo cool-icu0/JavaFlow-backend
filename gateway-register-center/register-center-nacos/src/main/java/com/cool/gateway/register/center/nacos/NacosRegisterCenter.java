@@ -162,12 +162,48 @@ public class NacosRegisterCenter implements RegisterCenter {
         }
     }
 
-    //nacos事件监听器（内部类）
+    /**
+     * Nacos注册监听器类，实现EventListener接口
+     * 用于监听Nacos中的服务事件，并在事件触发时执行相应逻辑
+     */
     public class NacosRegisterListener implements EventListener {
 
+        /**
+         * 当监听到事件时调用的方法
+         * 该方法主要处理NamingEvent事件，提取服务及实例信息，并通知注册中心监听器
+         * @param event 事件对象，包含服务事件信息
+         */
         @Override
         public void onEvent(Event event) {
+            if (event instanceof NamingEvent) {
+                NamingEvent namingEvent = (NamingEvent) event;
+                String serviceName = namingEvent.getServiceName();
 
+                try {
+                    //获取服务定义信息
+                    Service service = namingMaintainService.queryService(serviceName, env);
+                    ServiceDefinition serviceDefinition = JSON.parseObject(
+                            service.getMetadata().get(GatewayConst.META_DATA_KEY),
+                            ServiceDefinition.class);
+
+                    //获取服务实例信息
+                    List<Instance> allInstances = namingService.getAllInstances(serviceName, env);
+                    Set<ServiceInstance> set = new HashSet<>();
+
+                    for (Instance instance : allInstances) {
+                        ServiceInstance serviceInstance = JSON.parseObject(
+                                instance.getMetadata().get(GatewayConst.META_DATA_KEY),
+                                ServiceInstance.class);
+                        set.add(serviceInstance);
+                    }
+
+                    //通知注册中心监听器服务定义及实例变化
+                    registerCenterListenerList.stream()
+                            .forEach(l -> l.onChange(serviceDefinition, set));
+                } catch (NacosException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }
