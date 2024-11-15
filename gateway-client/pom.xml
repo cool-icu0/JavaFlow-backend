@@ -16,6 +16,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <description>
+        提供给下游服务使用，把下游服务也注册到注册中心，让网关也能感知到，从而转发请求
+    </description>
 
     <dependencies>
         <dependency>
