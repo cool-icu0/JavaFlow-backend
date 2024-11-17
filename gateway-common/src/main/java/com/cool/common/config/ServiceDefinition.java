@@ -1,6 +1,7 @@
 package com.cool.common.config;
 
 import lombok.Builder;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.Objects;
  * 资源服务定义类：无论下游是什么样的服务都需要进行注册
  */
 @Builder
+@Data
 public class ServiceDefinition implements Serializable {
 
 	/**
@@ -88,69 +90,5 @@ public class ServiceDefinition implements Serializable {
 		return Objects.hash(uniqueId);
 	}
 
-	public String getUniqueId() {
-		return uniqueId;
-	}
-
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
-
-	public String getServiceId() {
-		return serviceId;
-	}
-
-	public void setServiceId(String serviceId) {
-		this.serviceId = serviceId;
-	}
-
-	public String getVersion() {
-		return version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-	}
-
-	public String getProtocol() {
-		return protocol;
-	}
-
-	public void setProtocol(String protocol) {
-		this.protocol = protocol;
-	}
-
-	public String getPatternPath() {
-		return patternPath;
-	}
-
-	public void setPatternPath(String patternPath) {
-		this.patternPath = patternPath;
-	}
-
-	public String getEnvType() {
-		return envType;
-	}
-
-	public void setEnvType(String envType) {
-		this.envType = envType;
-	}
-
-	public boolean isEnable() {
-		return enable;
-	}
-
-	public void setEnable(boolean enable) {
-		this.enable = enable;
-	}
-
-	public Map<String, ServiceInvoker> getInvokerMap() {
-		return invokerMap;
-	}
-
-	public void setInvokerMap(Map<String, ServiceInvoker> invokerMap) {
-		this.invokerMap = invokerMap;
-	}
-	
 
 }
