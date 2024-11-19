@@ -14,6 +14,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>config-center-api</module>
+        <module>config-center-nacos</module>
     </modules>
 
     <properties>
