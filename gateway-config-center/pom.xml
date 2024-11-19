@@ -8,10 +8,13 @@
     </parent>
 
     <artifactId>gateway-config-center</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>gateway-config-center</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>config-center-api</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

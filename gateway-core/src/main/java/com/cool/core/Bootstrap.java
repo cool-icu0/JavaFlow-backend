@@ -7,6 +7,7 @@ import com.cool.common.config.ServiceInstance;
 import com.cool.common.utils.NetUtils;
 import com.cool.common.utils.TimeUtil;
 import com.cool.core.netty.Container;
+import com.cool.gateway.config.center.api.ConfigCenter;
 import com.cool.gateway.register.center.api.RegisterCenter;
 import com.cool.gateway.register.center.api.RegisterCenterListener;
 import org.slf4j.Logger;
@@ -32,6 +33,13 @@ public class Bootstrap
         System.out.println(config);
         //插件初始化
         //配置中心管理器初始化，连接配置中心，监听配置的新增、修改、删除
+        ConfigCenter configCenter = null; //todo 先设置为空
+        configCenter.subscribeRuleChange(
+                rules -> DynamicConfigManager
+                        .getInstance()
+                        .putAllRule(rules)
+        );
+
         //启动容器
         Container container = new Container(config);
         container.start();
