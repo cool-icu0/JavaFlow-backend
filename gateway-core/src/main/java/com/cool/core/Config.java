@@ -8,7 +8,7 @@ public class Config {
 
     private int port =8888;
 
-    private String appliactionName = "JavaFlow";
+    private String applicationName = "api-gateway";
 
     private String registryAddress = "127.0.0.1:8848";
 

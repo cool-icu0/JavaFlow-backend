@@ -1,13 +1,11 @@
 package com.cool.core.context;
 
 import io.netty.channel.ChannelHandlerContext;
-import com.cool.common.rule.Rule;
+import com.cool.common.config.Rule;
 import com.cool.common.utils.AssertUtil;
 import com.cool.core.request.GatewayRequest;
 import com.cool.core.response.GatewayResponse;
 import io.netty.util.ReferenceCountUtil;
-
-import java.util.Map;
 
 
 /**

@@ -10,7 +10,6 @@ import com.cool.core.context.HttpRequestWrapper;
 import com.cool.core.helper.AsyncHttpHelper;
 import com.cool.core.helper.RequestHelper;
 import com.cool.core.helper.ResponseHelper;
-import com.cool.core.netty.NettyProcessor;
 import com.cool.core.response.GatewayResponse;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;

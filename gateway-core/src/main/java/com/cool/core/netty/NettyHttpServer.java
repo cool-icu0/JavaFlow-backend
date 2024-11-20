@@ -3,6 +3,7 @@ package com.cool.core.netty;
 import com.cool.common.utils.RemotingUtil;
 import com.cool.core.Config;
 import com.cool.core.LifeCycle;
+import com.cool.core.netty.processor.NettyProcessor;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -17,7 +18,6 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.core.jmx.Server;
 
 import java.net.InetSocketAddress;
 

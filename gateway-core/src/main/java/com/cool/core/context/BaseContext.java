@@ -1,6 +1,6 @@
 package com.cool.core.context;
 
-import com.cool.common.rule.Rule;
+import com.cool.common.config.Rule;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;

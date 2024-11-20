@@ -1,6 +1,7 @@
 package com.cool.core.netty;
 
 import com.cool.core.context.HttpRequestWrapper;
+import com.cool.core.netty.processor.NettyProcessor;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;

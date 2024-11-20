@@ -1,6 +1,6 @@
 package com.cool.gateway.config.center.api;
 
-import com.cool.common.rule.Rule;
+import com.cool.common.config.Rule;
 
 import java.util.List;
 

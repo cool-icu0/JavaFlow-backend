@@ -6,7 +6,7 @@ import com.cool.common.config.ServiceInvoker;
 import com.cool.common.constants.BasicConst;
 import com.cool.common.constants.GatewayConst;
 import com.cool.common.constants.GatewayProtocol;
-import com.cool.common.rule.Rule;
+import com.cool.common.config.Rule;
 import com.cool.core.context.GatewayContext;
 import com.cool.core.request.GatewayRequest;
 import io.netty.channel.ChannelHandlerContext;

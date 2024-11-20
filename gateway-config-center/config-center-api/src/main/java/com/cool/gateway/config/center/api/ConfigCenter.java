@@ -8,6 +8,6 @@ public interface ConfigCenter {
     /**
      * 订阅配置变更
      */
-    void subscribeRuleChange(RulesChangeListener listener);
+    void subscribeRulesChange(RulesChangeListener listener);
 
 }
