@@ -1,7 +1,6 @@
 <p align="center">
     <a href="" target="_blank">
       <img src="./doc/images/icon.png" width="280" />
-      <img src="./doc/images/logo.png" width="280" />
     </a>
 </p>
 <h1 align="center">Java-Flow 智能网关组件</h1>
