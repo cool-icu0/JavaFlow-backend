@@ -1,14 +1,9 @@
-[//]: # (# 基于Nacos和Netty的自研网关)
-
-[//]: # (<p align="center">)
-
-[//]: # (    <a href="" target="_blank">)
-
-[//]: # (      <img src="./doc/images/icon2.png" width="280" />)
-
-[//]: # (    </a>)
-
-[//]: # (</p>)
+<p align="center">
+    <a href="" target="_blank">
+      <img src="./doc/images/icon.png" width="280" />
+      <img src="./doc/images/logo.png" width="280" />
+    </a>
+</p>
 <h1 align="center">Java-Flow 智能网关组件</h1>
 <p align="center"><strong>
     基于基于Nacos和Netty的自研网关。
@@ -16,13 +11,19 @@
     <br><em>持续更新中～</em>
 </strong></p>
 <div align="center">
-    <a href="https://github.com/cool-icu0/pandora-backend"><img src="https://img.shields.io/badge/后端-项目地址-yellow.svg?style=plasticr"></a>
+    <a href="https://github.com/cool-icu0/Java-Flow"><img src="https://img.shields.io/badge/后端-项目地址-yellow.svg?style=plasticr"></a>
 </div>
+
 ## 一、项目介绍
- 基于基于Nacos和Netty的自研网关，专门用于解决统一用户鉴权，监控可观测性，灰度发布，流量控制，超时，重试等过程中的各种疑难问题。
+
+基于基于Nacos和Netty的自研网关，专门用于解决统一用户鉴权，监控可观测性，灰度发布，流量控制，超时，重试等过程中的各种疑难问题。
+
 ## 二、项目架构图：
+
  <img src="./doc/images/arch.png">
+
 ## 项目技术栈
+
 - 网关：Netty
 - 注册中心：Nacos
 - 配置中心：Nacos
@@ -30,11 +31,13 @@
 - Maven：3.6.3
 
 ## 三、功能介绍
+
 - 动态路由转发
 - 动态负载均衡
 - 动态配置
 - 动态日志
 - 动态网关
+
 ## 未完待续。。。
 
 ## 四、如何参与
